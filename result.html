@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Result - AI Interviewer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/result.css">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">
+        <span class="logo_icon">🤖</span>
+        <span>AI Interviewer</span>
+    </a>
+    <button class="menu_btn" type="button">☰</button>
+</header>
+
+<main class="result_page">
+
+    <div class="result_header">
+        <p class="section_label">INTERVIEW RESULT</p>
+        <h1>Interview Complete</h1>
+        <p>Here is your performance summary.</p>
+    </div>
+<!-- Score-->
+    <section class="score_card">
+        <div class="score_circle">
+            <span id="score">--</span>
+            <small>/ 100</small>
+        </div>
+        <div class="score_info">
+            <strong id="score_title">--</strong>
+            <span id="score_description">--</span>
+        </div>
+    </section>
+<!-- Overview-->
+    <section class="result_section">
+        <h2>Overall</h2>
+        <div class="result_card">
+            <p id="overall"></p>
+        </div>
+    </section>
+<!-- Strengths-->
+    <section class="result_section">
+        <h2>Strengths</h2>
+        <div class="result_card" id="strengths"></div>
+    </section>
+<!-- Improve-->
+    <section class="result_section">
+        <h2>Areas to Improve</h2>
+        <div class="result_card" id="improvements"></div>
+    </section>
+<!-- Recommend-->
+    <section class="result_section">
+        <h2>AI Recommendations</h2>
+        <div class="recommendation_card">
+            <div class="recommendation_icon">🤖</div>
+            <div id="recommendations"> No recommendations </div>
+        </div>
+    </section>
+<!-- Review answers -->
+    <section class="result_section review_section">
+        <h2>Review Your Answers</h2>
+        <div id="review_list" class="review_list"></div>
+    </section>
+<!-- Action-->
+    <div class="result_actions">
+        <a href="setup.html" class="primary_btn retry_btn">
+            Try Again
+            <span>↻</span>
+        </a>
+        <a href="index.html" class="secondary_btn">
+            Back to Home
+        </a>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>© 2026 AI Interviewer</p>
+</footer>
+
+<script src="js/result.js"></script>
+</body>
+</html>

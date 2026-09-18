@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Room - AI Interviewer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/interview.css">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">
+        <span class="logo_icon">🤖</span>
+        <span>AI Interviewer</span>
+    </a>
+
+    <button class="menu_btn" type="button">☰</button>
+</header>
+
+<main class="interview_page">
+
+    <div class="interview_header">
+        <a href="setup.html" class="back_btn">←</a>
+        <div class="interview_title">
+            <span>Interview Room</span>
+            <small id="question_progress">Loading...</small>
+        </div>
+
+        <span class="question_count" id="question_count"> - / - </span>
+    </div>
+
+    <div class="progress_container">
+        <div class="progress_bar">
+            <div class="progress_value"></div>
+        </div>
+    </div>
+
+    <section class="question_section">
+
+        <div class="interviewer_info">
+            <div class="ai_avatar">🤖</div>
+
+            <div>
+                <strong>AI Interviewer</strong>
+                <span id="interview_position">Loading...</span>
+            </div>
+        </div>
+
+        <div class="question_card">
+            <p class="question_label">QUESTION</p>
+            <h1> Generating question... </h1>
+        </div>
+
+    </section>
+
+    <section class="answer_section">
+
+        <div class="answer_header">
+            <label for="answer">Your Answer</label>
+            <span></span>
+        </div>
+
+        <textarea
+            id="answer"
+            name="answer"
+            maxlength="500"
+            placeholder="Type your answer here..."
+        ></textarea>
+
+        <p class="answer_hint">
+            Take your time and explain your answer clearly.
+        </p>
+
+    </section>
+
+    <button type="button" class="primary_btn submit_btn">
+        Submit Answer
+        <span>→</span>
+    </button>
+
+</main>
+
+<div class="modal_overlay" id="error_modal">
+    <div class="error_modal">
+        <div class="error_icon">⚠️</div>
+        <h2>Something went wrong</h2>
+        <p id="error_message"></p>
+        <button id="error_close">OK</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© 2026 AI Interviewer</p>
+</footer>
+
+<script src="js/interview.js"></script>
+</body>
+</html>
