@@ -86,9 +86,9 @@ if (result.score >= 90) {
     scoreTitle.textContent = 'Excellent Performance';
 } else if (result.score >= 80) {
     scoreTitle.textContent = 'Very Good Performance';
-} else if (result.score >= 70) {
+} else if (result.score >= 65) {
     scoreTitle.textContent = 'Good Performance';
-} else if (result.score >= 60) {
+} else if (result.score >= 50) {
     scoreTitle.textContent = 'Fair Performance';
 } else {
     scoreTitle.textContent = 'Needs Improvement';

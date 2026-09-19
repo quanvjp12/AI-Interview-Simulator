@@ -42,6 +42,10 @@ function updateProgress() {
 
 updateProgress();
 
+const questionCard = document.querySelector('.question_card');
+
+questionCard.classList.add('loading');
+
 fetch('/api/interview/start', {
     method: 'POST',
     headers: {
@@ -60,10 +64,12 @@ fetch('/api/interview/start', {
 .then(function(data) {
     console.log('AI question:', data.question);
     questionElement.textContent = data.question;
+    questionCard.classList.remove('loading');
 })
 .catch(function(error) {
     console.error('Error:', error);
     questionElement.textContent = 'Failed to load interview question.';
+    questionCard.classList.remove('loading');
     answerInput.disabled = true;
     submitBtn.disabled = true;
 });
@@ -82,6 +88,9 @@ submitBtn.addEventListener('click', async function() {
     console.log('Answers:', answers);
 
     submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+    submitBtn.textContent = 'Đang xử lý...';
+    answerInput.disabled = true;
     try {
         const response = await fetch('/api/interview/answer', {
             method: 'POST',
@@ -116,13 +125,17 @@ submitBtn.addEventListener('click', async function() {
             questionCount.textContent = `${currentQuestion} / ${questions}`;
             updateProgress();
             answerInput.value = '';
+            answerInput.disabled = false;
             submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
             submitBtn.textContent = 'Submit Answer →';
         }
     } catch (error) {
         console.error('Error:', error);
         submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
         submitBtn.textContent = 'Submit Answer →';
+        answerInput.disabled = false;
     }
 });
 function showError(message) {
