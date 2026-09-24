@@ -1,3 +1,5 @@
+const API_URL = 'https://ten-app.onrender.com'; 
+
 const position = localStorage.getItem('position');
 const level = localStorage.getItem('level');
 const questions = Number(localStorage.getItem('questions'));
@@ -46,7 +48,7 @@ const questionCard = document.querySelector('.question_card');
 
 questionCard.classList.add('loading');
 
-fetch('/api/interview/start', {
+fetch(`${API_URL}/api/interview/start`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -92,7 +94,7 @@ submitBtn.addEventListener('click', async function() {
     submitBtn.textContent = 'Đang xử lý...';
     answerInput.disabled = true;
     try {
-        const response = await fetch('/api/interview/answer', {
+        const response = await fetch(`${API_URL}/api/interview/answer`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
