@@ -21,7 +21,7 @@
 <main class="setup_page">
 
     <div class="setup_header">
-        <a href="index.html" class="back_btn">←</a>
+        <button type="button" class="back_btn" id="back_btn" title="Back to Home">←</button>
         <div>
             <p class="section_label">INTERVIEW SETUP</p>
             <h1>Prepare your interview</h1>
@@ -128,6 +128,17 @@
     </form>
 
 </main>
+
+<div class="modal_overlay" id="confirm_leave_modal">
+    <div class="confirm_modal">
+        <h3>Do you want to leave?</h3>
+        <p>Your setup preferences will be reset. Are you sure you want to return to the home page?</p>
+        <div class="confirm_actions">
+            <button type="button" class="confirm_btn cancel_btn" id="confirm_cancel">Cancel</button>
+            <button type="button" class="confirm_btn leave_btn" id="confirm_leave">Leave</button>
+        </div>
+    </div>
+</div>
 
 <footer class="footer">
     <p>© 2026 AI Interviewer</p>

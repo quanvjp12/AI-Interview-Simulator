@@ -85,6 +85,122 @@ select {
     transform: scale(0.97);
 }
 
+/* Nút back_btn dùng chung */
+.back_btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef5ff;
+    color: #3478f6;
+    border-radius: 10px;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.back_btn:hover {
+    background: #dbeafe;
+    color: #1d4ed8;
+    transform: translateX(-2px);
+    box-shadow: 0 4px 12px rgba(52, 120, 246, 0.15);
+}
+
+.back_btn:active {
+    transform: translateX(-1px) scale(0.95);
+}
+
+.modal_overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal_overlay.show {
+    display: flex;
+}
+
+.confirm_modal {
+    width: min(90%, 380px);
+    padding: 26px 22px;
+    background: #ffffff;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+    animation: modalPop 0.2s ease-out;
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.confirm_modal h3 {
+    color: #182b49;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.confirm_modal p {
+    color: #667085;
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+}
+
+.confirm_actions {
+    display: flex;
+    gap: 10px;
+}
+
+.confirm_btn {
+    flex: 1;
+    min-height: 42px;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel_btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.cancel_btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.leave_btn {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+.leave_btn:hover {
+    background: #dc2626;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
 .footer {
     padding: 24px 20px;
     text-align: center;

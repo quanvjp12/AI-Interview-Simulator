@@ -1,4 +1,4 @@
-const API_URL = 'https://ai-interview-backend-7yg0.onrender.com'; 
+const API_URL = 'http://localhost:3000'; 
 
 const position = localStorage.getItem('position');
 const level = localStorage.getItem('level');
@@ -48,6 +48,12 @@ const questionCard = document.querySelector('.question_card');
 
 questionCard.classList.add('loading');
 
+const warmupTimer = setTimeout(function() {
+    questionElement.textContent = language === 'vi' 
+        ? 'Máy chủ AI đang khởi động (mất khoảng 30-40s trong lần đầu), vui lòng chờ một chút...' 
+        : 'Server is starting up (may take 30-40s on first load), please wait...';
+}, 5000);
+
 fetch(`${API_URL}/api/interview/start`, {
     method: 'POST',
     headers: {
@@ -64,13 +70,17 @@ fetch(`${API_URL}/api/interview/start`, {
     return response.json();
 })
 .then(function(data) {
+    clearTimeout(warmupTimer);
     console.log('AI question:', data.question);
     questionElement.textContent = data.question;
     questionCard.classList.remove('loading');
 })
 .catch(function(error) {
+    clearTimeout(warmupTimer);
     console.error('Error:', error);
-    questionElement.textContent = 'Failed to load interview question.';
+    questionElement.textContent = language === 'vi' 
+        ? 'Không thể tải câu hỏi phỏng vấn. Vui lòng thử tải lại trang.' 
+        : 'Failed to load interview question. Please refresh the page.';
     questionCard.classList.remove('loading');
     answerInput.disabled = true;
     submitBtn.disabled = true;
@@ -148,3 +158,30 @@ function showError(message) {
 errorClose.addEventListener('click', function() {
     errorModal.classList.remove('show');
 });
+
+// Xử lý xác nhận khi bấm nút Back (←) trong phòng phỏng vấn
+const backBtn = document.querySelector('#back_btn');
+const confirmModal = document.querySelector('#confirm_leave_modal');
+const confirmCancel = document.querySelector('#confirm_cancel');
+const confirmLeave = document.querySelector('#confirm_leave');
+
+if (backBtn && confirmModal) {
+    backBtn.addEventListener('click', function() {
+        confirmModal.classList.add('show');
+    });
+
+    confirmCancel.addEventListener('click', function() {
+        confirmModal.classList.remove('show');
+    });
+
+    confirmLeave.addEventListener('click', function() {
+        window.location.href = 'setup.html';
+    });
+
+    // Bấm ra ngoài vùng modal để đóng
+    confirmModal.addEventListener('click', function(event) {
+        if (event.target === confirmModal) {
+            confirmModal.classList.remove('show');
+        }
+    });
+}

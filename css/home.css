@@ -32,6 +32,29 @@
     line-height: 1.65;
 }
 
+.hero_content .primary_btn {
+    transition: all 0.25s ease;
+}
+
+.hero_content .primary_btn span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.hero_content .primary_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(52, 120, 246, 0.35);
+    background: #2563eb;
+}
+
+.hero_content .primary_btn:hover span {
+    transform: translateX(4px);
+}
+
+.hero_content .primary_btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
 .hero_image {
     width: 100%;
     margin-top: 35px;
@@ -40,17 +63,99 @@
     justify-content: center;
 }
 
-.robot_placeholder {
-    width: 220px;
-    height: 220px;
+/* Robot Visual Wrapper */
+.robot_visual_wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #eef5ff;
+    padding: 20px;
+}
+
+/* Robot Avatar với Floating & Glow */
+.robot_avatar {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e6f0ff 100%);
     border-radius: 50%;
-    font-size: 90px;
-    box-shadow:
-        0 20px 40px rgba(52, 120, 246, 0.08);
+    box-shadow: 
+        0 15px 35px rgba(52, 120, 246, 0.18),
+        0 0 50px rgba(52, 120, 246, 0.2);
+    animation: floatingRobot 4s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Vòng phát sáng thở (Glow Pulse) */
+.robot_glow_ring {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 2px solid rgba(52, 120, 246, 0.4);
+    animation: glowPulse 3s ease-out infinite;
+    pointer-events: none;
+}
+
+.robot_icon {
+    font-size: 80px;
+    user-select: none;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+/* Badge trạng thái Ready to interview */
+.status_badge {
+    position: absolute;
+    bottom: -8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: #ffffff;
+    border: 1px solid #dbe6f5;
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(18, 43, 73, 0.08);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #182b49;
+    white-space: nowrap;
+}
+
+.status_dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+/* Keyframes Animations */
+@keyframes floatingRobot {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        transform: scale(0.96);
+        opacity: 0.8;
+        box-shadow: 0 0 10px rgba(52, 120, 246, 0.4);
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 0.2;
+        box-shadow: 0 0 35px rgba(52, 120, 246, 0.6);
+    }
+    100% {
+        transform: scale(1.15);
+        opacity: 0;
+    }
 }
 
 .how_it_works {
@@ -90,6 +195,14 @@
     background: #f9fbff;
     border: 1px solid #e8edf5;
     border-radius: 16px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Chi tiết 4: Hover Effect - di chuyển lên nhẹ, không đổi màu, sáng viền thẻ */
+.step_card:hover {
+    transform: translateY(-5px);
+    border-color: #3478f6;
+    box-shadow: 0 10px 24px rgba(52, 120, 246, 0.16);
 }
 
 .step_number {
@@ -154,10 +267,12 @@
         width: 45%;
         margin-top: 0;
     }
-    .robot_placeholder {
-        width: 320px;
-        height: 320px;
-        font-size: 130px;
+    .robot_avatar {
+        width: 250px;
+        height: 250px;
+    }
+    .robot_icon {
+        font-size: 110px;
     }
     .steps {
         grid-template-columns: repeat(4, 1fr);

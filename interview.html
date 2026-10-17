@@ -22,7 +22,7 @@
 <main class="interview_page">
 
     <div class="interview_header">
-        <a href="setup.html" class="back_btn">←</a>
+        <button type="button" class="back_btn" id="back_btn" title="Exit Interview">←</button>
         <div class="interview_title">
             <span>Interview Room</span>
             <small id="question_progress">Loading...</small>
@@ -81,6 +81,17 @@
     </button>
 
 </main>
+
+<div class="modal_overlay" id="confirm_leave_modal">
+    <div class="confirm_modal">
+        <h3>Do you want to leave?</h3>
+        <p>Your interview progress and answers will be lost. Are you sure you want to leave the interview room?</p>
+        <div class="confirm_actions">
+            <button type="button" class="confirm_btn cancel_btn" id="confirm_cancel">Stay</button>
+            <button type="button" class="confirm_btn leave_btn" id="confirm_leave">Leave</button>
+        </div>
+    </div>
+</div>
 
 <div class="modal_overlay" id="error_modal">
     <div class="error_modal">
