@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000'; 
+const API_URL = 'https://ai-interview-backend-7yg0.onrender.com'; 
 
 const position = localStorage.getItem('position');
 const level = localStorage.getItem('level');
